@@ -1,0 +1,3 @@
+export default function SectionHeading({ eyebrow, title, children }) {
+  return <div className="mb-10 max-w-2xl"><p className="mb-3 flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-indigo-600 dark:text-indigo-300"><span className="h-2 w-2 rotate-45 bg-current shadow-[0_0_12px_currentColor]" />{eyebrow}</p><h1 className="font-display text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl dark:text-white">{title}</h1><div className="mt-4 h-px w-24 bg-gradient-to-r from-cyan-300 via-violet-400 to-transparent" />{children && <p className="mt-4 text-lg leading-8 text-slate-600 dark:text-slate-300">{children}</p>}</div>
+}

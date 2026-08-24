@@ -1,0 +1,4 @@
+import { NavLink } from 'react-router-dom'
+import { profile } from '../data/profile'
+import Icon from './Icons'
+export default function Footer() { return <footer className="border-t border-slate-200 dark:border-white/10"><div className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><p>© {new Date().getFullYear()} {profile.name}. Built with care.</p><div className="flex gap-4"><NavLink to="/projects">Projects</NavLink><a className="inline-flex items-center gap-1.5" href={profile.github} target="_blank" rel="noreferrer"><Icon name="github" />GitHub</a><a className="inline-flex items-center gap-1.5" href={profile.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" />LinkedIn</a><a className="inline-flex items-center gap-1.5" href={`mailto:${profile.email}`}><Icon name="mail" />Email</a></div></div></footer> }

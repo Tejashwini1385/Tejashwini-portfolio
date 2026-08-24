@@ -1,0 +1,4 @@
+import SectionHeading from '../components/SectionHeading'
+import ProjectCard from '../components/ProjectCard'
+import { useProjects } from '../hooks/useProjects'
+export default function Projects() { const { data: projects, isLoading, isError } = useProjects(); return <div className="reveal"><SectionHeading eyebrow="Projects" title="Selected problem-solving work.">Each entry reflects a project or research direction from my portfolio.</SectionHeading>{isLoading && <p className="text-slate-500">Loading projects…</p>}{isError && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-700">Projects could not be loaded. Please try again shortly.</p>}<div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{projects?.map((project) => <ProjectCard key={project.title} project={project} />)}</div></div> }
