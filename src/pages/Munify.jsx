@@ -3,51 +3,67 @@ import SectionHeading from '../components/SectionHeading'
 import { ArrowUpRight } from '../components/Icons'
 
 const stack = ['Python 3.11+', 'FastAPI', 'Uvicorn', 'Pydantic', 'SQLAlchemy 2.x', 'PostgreSQL', 'Alembic', 'HTTPX', 'pandas', 'openpyxl', 'boto3', 'JWT authentication', 'Perdix integration', 'S3-compatible storage']
-const modules = [
-  ['01', 'Project management', 'Create proposals, save drafts, submit projects for review, and monitor project status.'],
-  ['02', 'Funding management', 'Track funding commitments, allocation, utilization, and project funding progress.'],
-  ['03', 'Workflow management', 'Move projects through validation, review, approval, monitoring, and closure.'],
-  ['04', 'Document management', 'Upload, store, retrieve, and manage project documents and compliance records.'],
-  ['05', 'Dashboards & reporting', 'Summarize project status, funding progress, workflow activity, and operations.'],
-  ['06', 'Role-based access', 'Give municipal users, administrators, lenders, and QA teams role-appropriate functionality.'],
-]
-const stakeholders = [
-  ['Municipal users', 'Create and manage projects'],
-  ['Administrators', 'Review submissions, manage users, and monitor workflows'],
-  ['Lenders / funding partners', 'Review projects and manage funding commitments'],
-  ['QA teams', 'Track issues, observations, and follow-up activities'],
-]
-const workflow = ['Project creation', 'Draft', 'Validation', 'Review', 'Approval', 'Funding', 'Monitoring', 'Completion / closure']
 
 function Architecture() {
-  return <div className="grid gap-3 md:grid-cols-3 md:items-center"><div className="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 p-5"><p className="text-xs font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-300">Presentation layer</p><p className="mt-2 font-display text-xl font-semibold">Frontend</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Stakeholder-facing workflows and dashboards.</p></div><div className="text-center text-2xl text-cyan-500 md:rotate-0">↓</div><div className="rounded-2xl border border-indigo-300/30 bg-indigo-400/10 p-5"><p className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Application layer</p><p className="mt-2 font-display text-xl font-semibold">FastAPI REST API</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Authentication, validation, business logic, workflows, and database interaction.</p></div><div className="hidden text-center text-2xl text-cyan-500 md:block">↓</div><div className="rounded-2xl border border-emerald-300/30 bg-emerald-400/10 p-5"><p className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-300">Data layer</p><p className="mt-2 font-display text-xl font-semibold">PostgreSQL</p><p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Structured application data and workflow records.</p></div></div>
+  return <div className="grid gap-3 md:grid-cols-3 md:items-center">
+    <div className="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 p-5">
+      <p className="text-xs font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-300">Presentation layer</p>
+      <p className="mt-2 font-display text-xl font-semibold">Frontend</p>
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Stakeholder-facing workflows and dashboards.</p>
+    </div>
+    <div className="text-center text-2xl text-cyan-500">→</div>
+    <div className="rounded-2xl border border-indigo-300/30 bg-indigo-400/10 p-5">
+      <p className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-300">Application layer</p>
+      <p className="mt-2 font-display text-xl font-semibold">FastAPI REST API</p>
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Authentication, validation, business logic, workflows, and database interaction.</p>
+    </div>
+    <div className="hidden text-center text-2xl text-cyan-500 md:block">→</div>
+    <div className="rounded-2xl border border-emerald-300/30 bg-emerald-400/10 p-5 md:col-start-3">
+      <p className="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-300">Data layer</p>
+      <p className="mt-2 font-display text-xl font-semibold">PostgreSQL</p>
+      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Structured application data and workflow records.</p>
+    </div>
+  </div>
 }
 
 export default function Munify() {
   return <div className="reveal">
-    <section className="relative overflow-hidden rounded-3xl border border-cyan-300/20 bg-slate-950 p-7 text-white shadow-2xl shadow-cyan-950/20 sm:p-12 dark:bg-[#0b1728]"><div className="absolute right-0 top-0 h-56 w-56 translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-400/20 blur-3xl" /><p className="relative text-xs font-bold uppercase tracking-[.25em] text-cyan-300">Featured internship project</p><h1 className="relative mt-5 max-w-4xl font-display text-4xl font-semibold tracking-tight sm:text-6xl">Municipal Funding Platform <span className="text-cyan-300">(Munify)</span></h1><p className="relative mt-5 max-w-2xl text-lg leading-8 text-slate-300">A web-based municipal project funding and workflow management platform.</p><div className="relative mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-300"><span><strong className="text-white">Role</strong><br />Software Development Intern</span><span><strong className="text-white">Company</strong><br />Dvara Solutions Pvt Ltd</span><span><strong className="text-white">Duration</strong><br />19 Jan 2026 – 30 May 2026</span></div></section>
+    <section className="relative overflow-hidden rounded-3xl border border-cyan-300/20 bg-slate-950 p-7 text-white shadow-2xl shadow-cyan-950/20 sm:p-12 dark:bg-[#0b1728]">
+      <div className="absolute right-0 top-0 h-56 w-56 translate-x-1/3 -translate-y-1/3 rounded-full bg-cyan-400/20 blur-3xl" />
+      <p className="relative text-xs font-bold uppercase tracking-[.25em] text-cyan-300">Featured internship project</p>
+      <h1 className="relative mt-5 max-w-4xl font-display text-4xl font-semibold tracking-tight sm:text-6xl">Municipal Funding Platform <span className="text-cyan-300">(Munify)</span></h1>
+      <p className="relative mt-5 max-w-2xl text-lg leading-8 text-slate-300">A web-based municipal project funding and workflow management platform.</p>
+    </section>
 
-    <section className="mt-16"><SectionHeading eyebrow="01 · Overview" title="Making municipal funding easier to follow.">Munify centralizes project proposals, funding workflows, commitments, documents, approvals, monitoring, dashboards, and workflow activities in one structured environment.</SectionHeading><div className="grid gap-5 md:grid-cols-3"><div className="rounded-2xl bg-cyan-400/10 p-6"><p className="text-3xl font-display font-semibold text-cyan-600 dark:text-cyan-300">One place</p><p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">A shared environment for municipal users, funding partners, administrators, and QA teams.</p></div><div className="rounded-2xl bg-indigo-400/10 p-6"><p className="text-3xl font-display font-semibold text-indigo-600 dark:text-indigo-300">Traceable</p><p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Structured stages and records make progress easier to monitor.</p></div><div className="rounded-2xl bg-emerald-400/10 p-6"><p className="text-3xl font-display font-semibold text-emerald-600 dark:text-emerald-300">Connected</p><p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Frontend workflows communicate with backend APIs across the application.</p></div></div></section>
+    <section className="mt-16">
+      <SectionHeading eyebrow="01 · Project introduction" title="See Munify in action.">A short introduction to the platform and its workflow.</SectionHeading>
+      <div className="overflow-hidden rounded-2xl border border-cyan-300/20 bg-slate-950 p-2 shadow-xl shadow-cyan-950/10">
+        <video controls preload="metadata" className="aspect-video w-full rounded-xl bg-slate-900" aria-label="Munify project introduction video">
+          <source src="/Munify_introduction.mp4" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+      </div>
+      <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">Project introduction video.</p>
+    </section>
 
-    <section className="mt-20 grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><SectionHeading eyebrow="02 · Problem" title="Funding workflows need shared context.">Municipal funding involves multiple stakeholders, stages, documents, decisions, and follow-up activities. Munify brings those moving parts into a clearer workflow that is easier to coordinate and monitor.</SectionHeading></div><div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5"><p className="text-xs font-bold uppercase tracking-widest text-slate-400">The platform connects</p><div className="mt-5 space-y-3">{stakeholders.map(([name, detail]) => <div key={name} className="flex items-center gap-4 rounded-xl bg-slate-50 p-4 dark:bg-white/5"><span className="h-2 w-2 shrink-0 rounded-full bg-cyan-400" /><div><p className="font-semibold text-slate-900 dark:text-white">{name}</p><p className="text-sm text-slate-600 dark:text-slate-300">{detail}</p></div></div>)}</div></div></section>
+    <section className="mt-20">
+      <SectionHeading eyebrow="02 · Architecture" title="Three layers, one connected workflow.">
+        <Architecture />
+      </SectionHeading>
+    </section>
 
-    <section className="mt-20"><SectionHeading eyebrow="03 · Solution" title="A structured path from proposal to closure." /><div className="grid gap-3 md:grid-cols-8">{workflow.map((step, index) => <div key={step} className="relative rounded-xl border border-cyan-300/20 bg-cyan-400/5 p-4 text-center transition hover:-translate-y-1 hover:border-cyan-400"><span className="text-xs font-bold text-cyan-600 dark:text-cyan-300">0{index + 1}</span><p className="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-200">{step}</p>{index < workflow.length - 1 && <span className="absolute -right-3 top-1/2 z-10 hidden text-cyan-400 md:block">→</span>}</div>)}</div><div className="mt-8 rounded-2xl border border-amber-300/30 bg-amber-50 p-6 dark:bg-amber-400/10"><p className="text-xs font-bold uppercase tracking-widest text-amber-700 dark:text-amber-300">Funding commitment lifecycle</p><div className="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold text-slate-800 dark:text-slate-100">{['Under review', 'Approved', 'Rejected', 'Funded', 'Disbursed'].map((step, index) => <span key={step} className="flex items-center gap-3">{step}{index < 4 && <span className="text-amber-500">→</span>}</span>)}</div></div></section>
+    <section className="mt-20">
+      <SectionHeading eyebrow="03 · Technology stack" title="The project technology landscape." />
+      <div className="flex flex-wrap gap-3">{stack.map((item) => <span key={item} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">{item}</span>)}</div>
+    </section>
 
-    <section className="mt-20"><SectionHeading eyebrow="04 · My role" title="What I contributed during the internship.">My work focused on verified areas of the internship project, while the platform itself includes broader capabilities delivered across the team.</SectionHeading><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{['Backend API development using FastAPI', 'Dashboard workflows', 'Business logic implementation', 'Frontend-backend integration', 'Data migration with real-world datasets', 'Git and Jenkins development workflows'].map((item) => <div key={item} className="rounded-2xl border border-cyan-300/20 bg-white p-5 dark:bg-white/5"><span className="text-xl text-cyan-500">+</span><p className="mt-3 font-semibold text-slate-800 dark:text-slate-100">{item}</p></div>)}</div></section>
-
-    <section className="mt-20"><SectionHeading eyebrow="05 · Architecture" title="Three layers, one connected workflow."><Architecture /></SectionHeading></section>
-
-    <section className="mt-20"><SectionHeading eyebrow="06 · Technology stack" title="The project technology landscape.">These technologies are described in the project report. They represent the platform stack and should not be read as a claim that I personally worked on every item.</SectionHeading><div className="flex flex-wrap gap-3">{stack.map((item) => <span key={item} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">{item}</span>)}</div></section>
-
-    <section className="mt-20"><SectionHeading eyebrow="07 · Key modules" title="Capabilities designed around real operations." /><div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{modules.map(([number, title, description]) => <article key={title} className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5"><p className="text-sm font-bold text-cyan-600 dark:text-cyan-300">{number}</p><h2 className="mt-4 font-display text-xl font-semibold text-slate-900 dark:text-white">{title}</h2><p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{description}</p></article>)}</div></section>
-
-    <section className="mt-20 grid gap-10 lg:grid-cols-2"><div><SectionHeading eyebrow="08 · Dashboard" title="A concise view for timely decisions.">The dashboard provides summarized views of project activities, funding progress, workflow status, and operational monitoring. It helps decision-makers identify delays, monitor progress, and take timely actions.</SectionHeading></div><div className="rounded-2xl border border-slate-200 bg-[#101b31] p-5 text-white shadow-xl dark:border-cyan-300/20"><div className="flex items-center justify-between border-b border-white/10 pb-4"><p className="font-display font-semibold">Munify overview</p><span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs text-emerald-300">Live workflow view</span></div><div className="mt-5 grid grid-cols-2 gap-3"><div className="rounded-xl bg-white/5 p-4"><p className="text-xs text-slate-400">Project activity</p><p className="mt-2 text-2xl font-semibold">Tracked</p></div><div className="rounded-xl bg-white/5 p-4"><p className="text-xs text-slate-400">Funding progress</p><p className="mt-2 text-2xl font-semibold text-cyan-300">Visible</p></div><div className="col-span-2 rounded-xl bg-white/5 p-4"><div className="flex items-center justify-between text-xs text-slate-400"><span>Workflow status</span><span>Monitoring</span></div><div className="mt-3 h-2 rounded-full bg-white/10"><div className="h-2 w-3/4 rounded-full bg-cyan-400" /></div><div className="mt-4 grid grid-cols-4 gap-2 text-center text-[10px] text-slate-400"><span className="text-cyan-300">Draft</span><span className="text-cyan-300">Review</span><span className="text-cyan-300">Approval</span><span>Closure</span></div></div></div></div></section>
-
-    <section className="mt-20"><SectionHeading eyebrow="09 · Testing & validation" title="Practical exposure to integration and UAT." /><div className="grid gap-5 md:grid-cols-2"><div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5"><h2 className="font-display text-xl font-semibold">Integration testing</h2><p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">Frontend/backend communication, application/database data movement, role permissions, workflow transitions, document upload and retrieval, dashboard updates, and notification activities.</p></div><div className="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5"><h2 className="font-display text-xl font-semibold">Acceptance testing</h2><p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">Business requirement validation, workflow correctness, field validation, user interaction improvements, issue resolution, and workflow refinement based on client feedback.</p></div></div></section>
-
-    <section className="mt-20"><SectionHeading eyebrow="10 · Outcomes" title="A more coordinated funding process." /><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{['Centralized workflow management', 'Role-based access control', 'Structured submission and approvals', 'Funding utilization tracking', 'Document management', 'Dashboard-based monitoring', 'Improved coordination and transparency', 'Modular, scalable architecture'].map((item) => <p key={item} className="rounded-xl bg-emerald-400/10 p-4 text-sm font-semibold text-slate-800 dark:text-slate-100">{item}</p>)}</div></section>
-
-    <section className="mt-20 rounded-2xl border border-amber-300/30 bg-amber-50 p-6 dark:bg-amber-400/10"><p className="text-xs font-bold uppercase tracking-widest text-amber-700 dark:text-amber-300">Confidentiality note</p><p className="mt-3 max-w-3xl text-sm leading-7 text-slate-700 dark:text-slate-200">Some implementation details, datasets, internal identifiers, and client-specific information are intentionally omitted to respect organizational confidentiality.</p></section>
-    <div className="mt-12 flex flex-wrap gap-4"><Link to="/projects" className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-bold text-white dark:bg-cyan-400 dark:text-slate-950">Back to projects <ArrowUpRight /></Link><Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold dark:border-white/20">Get in touch <ArrowUpRight /></Link></div>
+    <section className="mt-20 rounded-2xl border border-amber-300/30 bg-amber-50 p-6 dark:bg-amber-400/10">
+      <p className="text-xs font-bold uppercase tracking-widest text-amber-700 dark:text-amber-300">Confidentiality note</p>
+      <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-700 dark:text-slate-200">Some implementation details, datasets, internal identifiers, and client-specific information are intentionally omitted to respect organizational confidentiality.</p>
+    </section>
+    <div className="mt-12 flex flex-wrap gap-4">
+      <Link to="/projects" className="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-bold text-white dark:bg-cyan-400 dark:text-slate-950">Back to projects <ArrowUpRight /></Link>
+      <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold dark:border-white/20">Get in touch <ArrowUpRight /></Link>
+    </div>
   </div>
 }

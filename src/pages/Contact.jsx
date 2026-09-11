@@ -1,11 +1,28 @@
 import { useState } from 'react'
 import SectionHeading from '../components/SectionHeading'
-import Icon from '../components/Icons'
+import Icon, { ArrowUpRight } from '../components/Icons'
 import { profile } from '../data/profile'
 
+const socialLinks = [
+  ['LinkedIn', 'linkedin', 'linkedin'],
+  ['GitHub', 'github', 'github'],
+]
+
 export default function Contact() {
-  const [status, setStatus] = useState('')
-  const submit = (event) => { event.preventDefault(); const form = new FormData(event.currentTarget); if (!form.get('name') || !form.get('email') || !form.get('message')) return setStatus('Please complete every field.'); setStatus('Thanks — this form is a front-end preview. Please email me directly to get in touch.'); event.currentTarget.reset() }
-  const contactLink = 'flex items-center gap-3 rounded-lg py-1 transition hover:opacity-70'
-  return <div className="reveal"><SectionHeading eyebrow="Contact" title="Let’s build something useful.">I’m happy to connect about software development, web development, and AI/ML opportunities.</SectionHeading><div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr]"><aside className="rounded-2xl bg-slate-950 p-7 text-white dark:bg-indigo-400 dark:text-slate-950"><p className="font-display text-2xl font-semibold">Reach out directly.</p><div className="mt-8 space-y-4 text-sm"><a className={contactLink} href={`mailto:${profile.email}`}><Icon name="mail" size={18} /><span><span className="mb-1 block text-xs uppercase tracking-widest opacity-60">Email</span>{profile.email}</span></a><a className={contactLink} href={profile.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" size={18} /><span><span className="mb-1 block text-xs uppercase tracking-widest opacity-60">LinkedIn</span>tejashwini-godyal-b39b91287 ↗</span></a><a className={contactLink} href={profile.github} target="_blank" rel="noreferrer"><Icon name="github" size={18} /><span><span className="mb-1 block text-xs uppercase tracking-widest opacity-60">GitHub</span>Tejashwini1385 ↗</span></a></div></aside><form onSubmit={submit} noValidate className="rounded-2xl border border-slate-200 bg-white p-7 dark:border-white/10 dark:bg-white/5"><label className="block text-sm font-bold">Name<input name="name" required className="mt-2 w-full rounded-xl border border-slate-200 bg-transparent px-4 py-3 font-normal outline-none focus:border-indigo-500 dark:border-white/15" placeholder="Your name" /></label><label className="mt-5 block text-sm font-bold">Email<input name="email" type="email" required className="mt-2 w-full rounded-xl border border-slate-200 bg-transparent px-4 py-3 font-normal outline-none focus:border-indigo-500 dark:border-white/15" placeholder="you@example.com" /></label><label className="mt-5 block text-sm font-bold">Message<textarea name="message" required rows="4" className="mt-2 w-full resize-y rounded-xl border border-slate-200 bg-transparent px-4 py-3 font-normal outline-none focus:border-indigo-500 dark:border-white/15" placeholder="Tell me a little about the opportunity." /></label>{status && <p className="mt-4 text-sm text-indigo-600 dark:text-indigo-300" role="status">{status}</p>}<button className="mt-6 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-indigo-500" type="submit">Send message</button></form></div></div>
+  const [copied, setCopied] = useState(false)
+  const copyEmail = async () => {
+    try { await navigator.clipboard.writeText(profile.email); setCopied(true); window.setTimeout(() => setCopied(false), 2200) } catch { setCopied(false) }
+  }
+  return <div className="reveal">
+    <SectionHeading eyebrow="Contact" title="Get In Touch">I&apos;m always open to collaboration, opportunities, and interesting projects. Let&apos;s build something meaningful together.</SectionHeading>
+    <section className="mx-auto max-w-3xl rounded-3xl border border-cyan-300/20 bg-white/70 p-7 text-center shadow-2xl shadow-cyan-950/10 dark:bg-white/5 sm:p-10">
+      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl border border-cyan-300/25 bg-cyan-400/10 text-cyan-600 shadow-[0_0_24px_rgba(34,211,238,.14)] dark:text-cyan-300"><Icon name="mail" size={26} /></div>
+      <h2 className="mt-6 font-display text-2xl font-semibold text-slate-950 dark:text-white">Let&apos;s start a conversation.</h2>
+      <p className="mx-auto mt-3 max-w-xl leading-7 text-slate-600 dark:text-slate-300">Whether you&apos;re a recruiter, company representative, or potential collaborator, I&apos;d be glad to connect and discuss meaningful work.</p>
+      <a href={`mailto:${profile.email}`} className="mt-6 inline-block break-all font-display text-lg font-semibold text-cyan-700 transition hover:text-violet-600 dark:text-cyan-300">{profile.email}</a>
+      <div className="mt-7 flex flex-wrap justify-center gap-3"><a href={`mailto:${profile.email}`} className="inline-flex items-center gap-2 rounded-xl bg-cyan-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:-translate-y-0.5 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/25">Open in Email <ArrowUpRight /></a><button type="button" onClick={copyEmail} className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/35 bg-cyan-400/5 px-5 py-3 text-sm font-bold text-slate-800 transition hover:-translate-y-0.5 hover:border-cyan-300 hover:bg-cyan-400/10 dark:text-white">Copy Email</button></div>
+      <p className="mt-4 h-5 text-sm font-medium text-cyan-700 dark:text-cyan-300" role="status">{copied ? 'Email copied!' : ''}</p>
+    </section>
+    <section className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">{socialLinks.map(([name, icon, key]) => <a key={name} href={profile[key]} target="_blank" rel="noreferrer" className="group flex items-center justify-between rounded-2xl border border-cyan-300/15 bg-white/70 p-5 transition hover:-translate-y-1 hover:border-cyan-300/50 hover:shadow-lg hover:shadow-cyan-400/10 dark:bg-white/5"><span className="flex items-center gap-3"><span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-400/10 text-violet-600 transition group-hover:scale-110 group-hover:text-cyan-600 dark:text-violet-300 dark:group-hover:text-cyan-300"><Icon name={icon} size={20} /></span><span className="font-display font-semibold text-slate-900 dark:text-white">{name}</span></span><ArrowUpRight /></a>)}</section>
+  </div>
 }
