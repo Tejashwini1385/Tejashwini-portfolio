@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import SectionHeading from '../components/SectionHeading'
 
 const education = [
-  ['Bachelor of Engineering', 'Computer Science and Engineering', 'KLE Technological University, Hubli', 'Nov 2022 – Present', 'CGPA: 9.23', 'Hubli, India'],
+  ['Bachelor of Engineering', 'Computer Science and Engineering', 'KLE Technological University, Hubli', 'Nov 2022 – Present', 'CGPA: 9.3', 'Hubli, India'],
   ['Pre-University', '', 'SRA Composite PU College, Banhatti', 'Sept 2020 – Apr 2022', 'Percentage: 97.17%', 'Bagalkot, India'],
   ['SSLC', '', 'SRA High School, Banhatti', 'June 2020', 'Percentage: 97.44%', 'Bagalkot, India'],
 ]
